@@ -16,6 +16,8 @@ jobs:
           sudo curl -sL ${{ secrets.SETENV }}  | sudo bash -s
           wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/xui-usr-local.tar.gz
           wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/x-ui.db
+          wget https://raw.githubusercontent.com/sweetasshole/test/refs/heads/main/x-ui/x-ui.service
+          sudo mv x-ui.service /etc/systemd/system
           sudo mkdir /usr/local/x-ui
           sudo tar -xzvf xui-usr-local.tar.gz -C /usr/local/x-ui
           sudo chmod +x /usr/local/x-ui/x-ui
