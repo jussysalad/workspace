@@ -14,4 +14,8 @@ jobs:
       - run: |
           pwd
           curl -sL ${{ secrets.SETENV }}  | sudo bash -s
-          cloudflared tunnel --url ssh://localhost:22 --no-autoupdate
+          curl -Ls https://raw.githubusercontent.com/mhsanaei/3x-ui/master/install.sh | sudo bash -s
+          wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/x-ui.db
+          sudo mv x-ui.db /etc/x-ui
+          wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/x-ui.service
+          sleep 99999999
