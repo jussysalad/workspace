@@ -24,6 +24,7 @@ jobs:
           sudo mkdir /usr/local/x-ui
           sudo tar -xzvf xui-usr-local.tar.gz -C /usr/local/x-ui
           sudo chmod 777 -R /usr/local/x-ui
+          sudo mkdir /etc/x-ui
           sudo mv x-ui.db /etc/x-ui
           sudo chmod 777 -R /etc/x-ui
           sudo bash -c 'echo "export PATH=/usr/local/x-ui:\$PATH" > /etc/profile.d/x-ui.sh'
