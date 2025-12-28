@@ -10,7 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # env
       - run: |
           pwd
           sudo curl -sL ${{ secrets.SETENV }}  | sudo bash -s
@@ -21,8 +20,10 @@ jobs:
           sudo mv x-ui.service /etc/systemd/system
           sudo mkdir /usr/local/x-ui
           sudo tar -xzvf xui-usr-local.tar.gz -C /usr/local/x-ui
-          sudo chmod +x /usr/local/x-ui/x-ui
+          sudo chmod 777 -R /usr/local/x-ui
           sudo mv x-ui.db /etc/x-ui
+          sudo bash -c 'echo "export PATH=/usr/local/x-ui:\$PATH" > /etc/profile.d/x-ui.sh'
+          source /etc/profile
           sudo systemctl daemon-reload
           sudo systemctl enable x-ui
           sudo systemctl start x-ui
