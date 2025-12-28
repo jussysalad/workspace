@@ -1,0 +1,21 @@
+Ubuntu comes with ABSOLUTELY NO WARRANTY, to the extent permitted by
+applicable law.
+
+/usr/bin/xauth:  file /home/runner/.Xauthority does not exist
+runner@runnervmh13bl:~$ journalctl -u x-ui.service -b
+Dec 28 17:28:43 runnervmh13bl systemd[1]: Started x-ui.service - x-ui Service.
+Dec 28 17:28:43 runnervmh13bl x-ui[2196]: 2025/12/28 17:28:43 Starting x-ui 2.8.5
+Dec 28 17:28:43 runnervmh13bl /usr/local/x-ui/x-ui[2196]: ERROR - Error loading certificates: open /root/cert/selfsigned/fullchain.pem: permission denied
+Dec 28 17:28:43 runnervmh13bl /usr/local/x-ui/x-ui[2196]: INFO - Web server running HTTP on [::]:21232
+Dec 28 17:28:43 runnervmh13bl /usr/local/x-ui/x-ui[2196]: INFO - XRAY: infra/conf/serial: Reading config: &{Name:bin/config.json Format:json}
+Dec 28 17:28:43 runnervmh13bl /usr/local/x-ui/x-ui[2196]: INFO - Sub server running HTTP on [::]:2096
+Dec 28 17:28:43 runnervmh13bl /usr/local/x-ui/x-ui[2196]: WARNING - XRAY: core: Xray 25.10.15 started
+runner@runnervmh13bl:~$ sudo x-ui
+sudo: x-ui: command not found
+runner@runnervmh13bl:~$ cd /usr/local/x-ui
+runner@runnervmh13bl:/usr/local/x-ui$ ls
+bin  x-ui  x-ui.service  x-ui.sh
+runner@runnervmh13bl:/usr/local/x-ui$ sudo ./x-ui
+2025/12/28 17:30:32 Starting x-ui 2.8.5
+2025/12/28 17:30:32 Error starting web server: listen tcp :21232: bind: address already in use
+runner@runnervmh13bl:/usr/local/x-ui$
