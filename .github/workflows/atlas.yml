@@ -8,6 +8,8 @@ on:
 jobs:
   probe_loop:
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Loop probe
         run: |
@@ -20,11 +22,9 @@ jobs:
               curl -X POST \
                 -H "Accept: application/vnd.github+json" \
                 -H "Authorization: Bearer $GITHUB_TOKEN" \
-                https://api.github.com/repos/workspace/actions/workflows/pan.yml/dispatches \
+                https://api.github.com/jussysalad/workspace/actions/workflows/pan.yml/dispatches \
                 -d '{"ref":"main"}'
             fi
 
             sleep 10  # 每 10 秒检测一次，可按需调整
           done
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
