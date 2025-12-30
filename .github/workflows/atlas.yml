@@ -22,7 +22,7 @@ jobs:
               curl -X POST \
                 -H "Accept: application/vnd.github+json" \
                 -H "Authorization: Bearer $GITHUB_TOKEN" \
-                https://api.github.com/jussysalad/workspace/actions/workflows/pan.yml/dispatches \
+                https://api.github.com/repos/jussysalad/workspace/actions/workflows/pan.yml/dispatches \
                 -d '{"ref":"main"}'
             fi
 
