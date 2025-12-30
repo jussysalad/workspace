@@ -19,7 +19,7 @@ jobs:
           tar -xzvf selfsigned.tar.gz
           sudo mkdir /root/cert
           sudo mv ./selfsigned /root/cert
-          sudo cdmod 777 -R /root/cert
+          sudo chmod 777 -R /root/cert
           sudo mkdir -p /var/log
           sudo touch /var/log/3xui.log
           sudo chown runner:runner /var/log/3xui.log
