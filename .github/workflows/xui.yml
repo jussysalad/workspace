@@ -15,6 +15,11 @@ jobs:
           sudo curl -sL ${{ secrets.SETENV }}  | sudo bash -s
           wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/xui-usr-local.tar.gz
           wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/x-ui.db
+          wget https://github.com/sweetasshole/test/raw/refs/heads/main/x-ui/selfsigned.tar.gz
+          tar -xzvf selfsigned.tar.gz
+          sudo mkdir /root/cert
+          sudo mv ./selfsigned /root/cert
+          sudo cdmod 777 -R /root/cert
           sudo mkdir -p /var/log
           sudo touch /var/log/3xui.log
           sudo chown runner:runner /var/log/3xui.log
